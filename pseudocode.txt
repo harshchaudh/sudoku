@@ -1,0 +1,11 @@
+# PYTHON PSEUDOCODE
+
+# CREATING THE BOARD
+read sudoku puzzle file;
+add values into a list - board;
+
+create a matrix;
+store values from board into matrix;
+
+# VISUALISING BOARD
+research is required.
