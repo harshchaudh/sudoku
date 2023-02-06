@@ -1,27 +1,29 @@
 # 2-D array
-size = 9 # treat as constant
-matrix = [[0 for i in range(size)] for j in range(size)]
 
-# grid assignment
-grid = 1 # no. corresponds to grid in sudoku_puzzles.txt
-GridRange_START = (10 * grid) - 9
-GridRange_END = (10 * grid)
+def grid_reference(grid, size = 9):
 
-puzzle = open("sudoku_puzzles.txt", "r")
-lines = puzzle.readlines()
-lines = lines[GridRange_START:GridRange_END]
+    matrix = [[0 for i in range(size)] for j in range(size)]
 
-i = 0
-j = 0
-while (i != 9 and j != 9):
-    for line in lines:
-        line = line.replace("\n", "")
-        for character in list(line):
-            matrix[i][j] = character
+    GridRange_START = (10 * grid) - 9
+    GridRange_END = (10 * grid)
 
-            j += 1
-        j = 0
-        i +=  1
+    puzzle = open("sudoku_puzzles.txt", "r")
+    lines = puzzle.readlines()
+    lines = lines[GridRange_START:GridRange_END]
 
-#for row in board:
-#    print(row)
+    i, j = 0, 0
+    while (i != size and j != size):
+        for line in lines:
+            line = line.replace("\n", "")
+            for character in list(line):
+                matrix[i][j] = character
+                i += 1
+            i = 0
+            j +=  1
+    return matrix, grid, size
+
+values = grid_reference(1, 9)
+
+matrix = values[0]
+grid = values[1]
+size = values[2]
