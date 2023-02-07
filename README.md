@@ -1,4 +1,4 @@
-# sudoku
+# Sudoku
 The task is create a playable verision of Sudoku. 
 
 OBJECTIVE:
